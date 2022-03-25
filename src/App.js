@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import './App.css';
 
 //Cartas que se usarán para la memoria.
@@ -24,9 +24,32 @@ function App() {
   const [eleccionUno, setEleccionUno] = useState(null)
   const [eleccionDos, setEleccionDos] = useState(null)
 
+    //Método que lee el clic en las cartas.
+    const handleClick = (carta) => {
+      //Se va a actualizar el estado de las cartas.
+      //Si está nulo, entonces se va a la elección 1. Si en caso ya no está nulo, entonces se va a la elecicón 2.
+      eleccionUno ? setEleccionDos(carta) : setEleccionUno(carta)
+    }
 
-    const handleClick = () => {
-      
+    //Comparando las dos cartas seleccionadas.
+    //Cuando se seleccione la carta 1, se va a buscar a esta función.
+    //Cuando se seleccione la carta 2, se va a buscar a esta función.
+    useEffect(() => {
+      if(eleccionUno && eleccionDos){
+        if(eleccionUno.src === eleccionDos.src){
+          resTurno()
+        }else{
+          console.log("Las cartas no son iguales")
+          resTurno()
+        }
+      }
+    },[eleccionUno, eleccionDos])
+
+    //Reset de las elecciones e incremento en el turno.
+    const resTurno = () => {
+      setEleccionUno(null)
+      setEleccionDos(null)
+      setTurno(prevTurno => prevTurno + 1)
     }
 
   //Mezclar las cartas.
@@ -41,7 +64,6 @@ function App() {
       setTurno(0)
   }
 
-  console.log(mezclas, turno)
 
   return (
     <div className="App">
