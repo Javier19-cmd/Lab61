@@ -3,3 +3,11 @@
   max-width: 900px;
   margin: 50px auto;
 }
+
+.grilla{
+   /*Poniendo la grilla en cuadrados*/
+    margin-top: 60px; /*Margen de 60 px con respecto al top.*/
+    display: grid;    /*Display en forma de grilla*/
+    grid-template-columns: 1fr 1fr 1fr 1fr; /*Cuatro columnas*/
+    grid-gap: 30px;/*Separación de 30px*/
+}

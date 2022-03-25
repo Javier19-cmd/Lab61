@@ -21,6 +21,14 @@ function App() {
   //Términos para que el usuario pueda tomar turnos en el juego.
   const [turno, setTurno] = useState(0)
 
+  const [eleccionUno, setEleccionUno] = useState(null)
+  const [eleccionDos, setEleccionDos] = useState(null)
+
+
+    const handleClick = () => {
+      
+    }
+
   //Mezclar las cartas.
   const mezcla = () => {
     //Agarrar las cartas, mezclarlas y duplicarlas.
@@ -40,12 +48,12 @@ function App() {
       <h1>Juego de Memoria (Lab6)</h1>
       <button onClick={mezcla}>Nuevo juego</button>
 
-      <div className="grid">
-        {cartas.map(carta => (
-          <div className ="card" key={carta.id}>
+      <div className="grilla">
+        {mezclas.map(carta => (
+          <div className ="carta" key={carta.id}>
             <div>
               <img className = "front" src={carta.src} alt="frente"/>
-              <img className = "back" src="/uno.png" alt="trasero"/>
+              <img className = "back" src="/uno.png" onClick={handleClick} alt="trasero"/>
             </div>
           </div>
         ))}
