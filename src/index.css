@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inspiration&display=swap'); /*Font que se usará*/
+body {
+  /*css del index.*/
+  font-family: Raleway, sans-serif;
+  margin: 0;
+  font-size: 1.5em;
+  text-align: center;
+  background: linear-gradient(90deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+}
