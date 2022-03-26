@@ -38,7 +38,9 @@ function App() {
             .sort(() => Math.random() - 0.5) //Busca una función para cada elemento del array.
             //Si regresa un número menor a cero, entonces las cartas se mantienen igual. Si en caso se regresa un número mayor a cero, entonces se cartas se mezcla.
             .map((carta) => ({...carta, id: Math.random() })) //Se mapean las cartas, se le pone un id a cada carta y luego se colocan en el grid.
-
+        //Inicializando las elecciones en null por si tuvieran algo almacenado de algún intento anterior.
+        setEleccionUno(null)
+        setEleccionDos(null)
         setMezclas(mezcla) //Se actualiza el estado de las cartas.
         setTurno(0)
     }
@@ -95,6 +97,11 @@ function App() {
       setDeshabilitado(false) //Cuando ya se hizo la comparación entre las cartas, ya se deshabilita el bloqueo establecido.
     }
 
+    //Empezando el juego de manera automática
+    useEffect(() => {
+      mezcla() //Llamando al método que mezcla todas las cartas.
+    },[])
+
     return (
       <div className = "App" >
         <h1 > Juego de Memoria(Lab6) < /h1> {/*Dándole título a la página*/}
@@ -112,6 +119,7 @@ function App() {
             {/*Hay tres escenarios: 1. Si se seleccionó la carta uno 2. Si se seleccionó la carta dos y 3. Si las cartas hacen match*/}
             {/*También se pasa el estado deshabilitado. Esto ocurre cuando hay un match entre dos cartas, entonces se bloquean las demás cartas. Si no, se habilita escoger cualquier otra carta*/}
         </div>
+        <p>Movimientos: {turno} </p>
       </div>
     );
 }
