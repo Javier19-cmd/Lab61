@@ -3,16 +3,16 @@ import './App.css';
 
 //Cartas que se usarán para la memoria.
 const cartas = [
-  {"src":"./1.png"},
-  {"src":"./2.png"},
-  {"src":"./3.png"},
-  {"src":"./4.png"},
-  {"src":"./5.png"},
-  {"src":"./6.png"},
-  {"src":"./7.png"},
-  {"src":"./8.png"},
-  {"src":"./9.png"},
-  {"src":"./10.png"}
+  {"src":"/img/1.png"},
+  {"src":"/img/2.png"},
+  {"src":"/img/3.png"},
+  {"src":"/img/4.png"},
+  {"src":"/img/5.png"},
+  {"src":"/img/6.png"},
+  {"src":"/img/7.png"},
+  {"src":"/img/8.png"},
+  {"src":"/img/9.png"},
+  {"src":"/img/10.png"}
 ]
 
 function App() {
@@ -20,37 +20,6 @@ function App() {
   const [mezclas, setMezclas] = useState([]) //Se guarda el estado de las cartas.
   //Términos para que el usuario pueda tomar turnos en el juego.
   const [turno, setTurno] = useState(0)
-
-  const [eleccionUno, setEleccionUno] = useState(null)
-  const [eleccionDos, setEleccionDos] = useState(null)
-
-    //Método que lee el clic en las cartas.
-    const handleClick = (carta) => {
-      //Se va a actualizar el estado de las cartas.
-      //Si está nulo, entonces se va a la elección 1. Si en caso ya no está nulo, entonces se va a la elecicón 2.
-      eleccionUno ? setEleccionDos(carta) : setEleccionUno(carta)
-    }
-
-    //Comparando las dos cartas seleccionadas.
-    //Cuando se seleccione la carta 1, se va a buscar a esta función.
-    //Cuando se seleccione la carta 2, se va a buscar a esta función.
-    useEffect(() => {
-      if(eleccionUno && eleccionDos){
-        if(eleccionUno.src === eleccionDos.src){
-          resTurno()
-        }else{
-          console.log("Las cartas no son iguales")
-          resTurno()
-        }
-      }
-    },[eleccionUno, eleccionDos])
-
-    //Reset de las elecciones e incremento en el turno.
-    const resTurno = () => {
-      setEleccionUno(null)
-      setEleccionDos(null)
-      setTurno(prevTurno => prevTurno + 1)
-    }
 
   //Mezclar las cartas.
   const mezcla = () => {
@@ -64,7 +33,6 @@ function App() {
       setTurno(0)
   }
 
-
   return (
     <div className="App">
       <h1>Juego de Memoria (Lab6)</h1>
@@ -75,7 +43,7 @@ function App() {
           <div className ="carta" key={carta.id}>
             <div>
               <img className = "front" src={carta.src} alt="frente"/>
-              <img className = "back" src="/uno.png" onClick={handleClick} alt="trasero"/>
+              <img className = "back" src="/img/uno.png" alt="trasero"/>
             </div>
           </div>
         ))}
