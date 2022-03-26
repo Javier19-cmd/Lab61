@@ -1,3 +1,12 @@
+/*
+Nombre: Javier Sebastián Valle Balsells
+Carnet: 20159
+Sección: 10
+
+Referencias:
+1. https://www.youtube.com/watch?v=ZCKohZwGZMw&list=PL4cUxeGkcC9iQ7g2eoNXHCJBBBz40S_Lm
+*/
+
 import { useEffect, useState } from 'react' //Importando estados y efectos.
 import './App.css';
 import Cartas from './components/Cartas' //Importando el método de cartas desde el archivo de Cartas.

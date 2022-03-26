@@ -1,9 +1,18 @@
+/*
+Nombre: Javier Sebastián Valle Balsells
+Carnet: 20159
+Sección: 10
+
+Referencias:
+1. https://www.youtube.com/watch?v=ZCKohZwGZMw&list=PL4cUxeGkcC9iQ7g2eoNXHCJBBBz40S_Lm
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Inspiration&display=swap'); /*Font que se usará*/
 body {
   /*css del index.*/
-  font-family: Raleway, sans-serif;
-  margin: 0;
-  font-size: 1.5em;
-  text-align: center;
-  background: linear-gradient(90deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+  font-family: Raleway, sans-serif; /*La fuente a usar es sans-serif*/
+  margin: 0;                       /*El margen del cuerpo es de 0*/
+  font-size: 18px;                /*El  tamaño de la fuente es de 18px*/
+  text-align: center;             /*El texto está alineado al centro*/
+  background: linear-gradient(90deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%); /*Se puso un linear gradient para el fondo*/
 }

@@ -1,4 +1,13 @@
-//Este archivo tiene algunas propiedades de las cartas para que sea más sencillo hacer algunas features.
+/*
+Nombre: Javier Sebastián Valle Balsells
+Carnet: 20159
+Sección: 10
+
+Referencias:
+1. https://www.youtube.com/watch?v=ZCKohZwGZMw&list=PL4cUxeGkcC9iQ7g2eoNXHCJBBBz40S_Lm
+*/
+
+//Este archivo tiene algunas propiedades de las cartas para que sea más sencillo hacer algunas features de las cartas.
 import './Cartas.css'
 
 export default function Cartas({carta, hEleccion, flipped, deshabilitados}){

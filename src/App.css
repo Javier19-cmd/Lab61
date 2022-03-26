@@ -1,10 +1,19 @@
+/*
+Nombre: Javier Sebastián Valle Balsells
+Carnet: 20159
+Sección: 10
+
+Referencias:
+1. https://www.youtube.com/watch?v=ZCKohZwGZMw&list=PL4cUxeGkcC9iQ7g2eoNXHCJBBBz40S_Lm
+*/
+
 .App {
   /*css del body.*/
   max-width: 900px;
   margin: 50px auto;
 }
 
-.grilla{
+.grilla {
    /*Poniendo la grilla en cuadrados*/
     margin-top: 60px; /*Margen de 60 px con respecto al top.*/
     display: grid;    /*Display en forma de grilla*/
