@@ -3,23 +3,24 @@ import './App.css';
 import Cartas from './components/Cartas' //Importando el método de cartas desde el archivo de Cartas.
 
 //Cartas que se usarán para la memoria.
+//Las cartas empiezan teniendo el match en false para hacer bien la comparación.
 const cartas = [
-    { "src": "/img/1.png" },
-    { "src": "/img/2.png" },
-    { "src": "/img/3.png" },
-    { "src": "/img/4.png" },
-    { "src": "/img/5.png" },
-    { "src": "/img/6.png" },
-    { "src": "/img/7.png" },
-    { "src": "/img/8.png" },
-    { "src": "/img/9.png" },
-    { "src": "/img/10.png" }
+    { "src": "/img/1.png", matched: false },
+    { "src": "/img/2.png", matched: false },
+    { "src": "/img/3.png", matched: false },
+    { "src": "/img/4.png", matched: false },
+    { "src": "/img/5.png", matched: false },
+    { "src": "/img/6.png", matched: false },
+    { "src": "/img/7.png", matched: false },
+    { "src": "/img/8.png", matched: false },
+    { "src": "/img/9.png", matched: false },
+    { "src": "/img/10.png", matched: false }
 ]
 
 function App() {
 
     const [mezclas, setMezclas] = useState([]) //Se guarda el estado de las cartas.
-        //Términos para que el usuario pueda tomar turnos en el juego.
+    //Términos para que el usuario pueda tomar turnos en el juego.
     const [turno, setTurno] = useState(0)
 
     //Creando estado para la elección de las cartas.
@@ -58,15 +59,27 @@ function App() {
 
         //Si el source de la elección 1 es igual al source de la elección 2, entonces se dice que hay un match.
         if(eleccionUno.src === eleccionDos.src){
-          console.log("Hay un match.")
+          setMezclas(prevMezcla => {//Se actualiza el estado de la carta.
+            return prevMezcla.map(carta => {//Se obtiene el estado anterior de la carta elegida.
+              //Se analiza si el source de la carta es igual a la elección uno para poder cambiar el estado de matched de la carta a true.
+              if(carta.src === eleccionUno.src) {
+                return {...carta, matched: true} //Cambiando el estado de matched de la carta a true.
+              }else {//Si en caso no es igual, entonces se voltea de nuevo.
+                return carta
+              }
+            })
+          }) //Se usa el estado antiguo de las cartas para actualizarlas.
           formTurno() //Se llama para limpiar las dos elecciones y para incrementar el turno.
         }else {
-          console.log("Las cartas no son iguales")
+          setMezclas()
           formTurno() //Se llama para limpiar las dos elecciones y para incrementar el turno.
         }
 
       }
     }, [eleccionUno, eleccionDos]) //Cuando se seleccione la carta 1, entonces se buscará esta función y cuando se seleccione la carta 2, entonces se busca este método otra vez.
+
+
+    console.log(cartas) //Imprimiendo el estado de las cartas.
 
     //Este método formatea las elecciones e incrementa el turno.
     const formTurno = () => {
