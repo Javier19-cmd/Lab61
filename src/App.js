@@ -22,6 +22,11 @@ function App() {
         //Términos para que el usuario pueda tomar turnos en el juego.
     const [turno, setTurno] = useState(0)
 
+    //Creando estado para la elección de las cartas.
+    const[eleccionUno, setEleccionUno] = useState(null) //Estado para la elección de la carta 1.
+    const[eleccionDos, setEleccionDos] = useState(null) //Estado para la elección de la carta 2.
+
+
     //Mezclar las cartas.
     const mezcla = () => {
         //Agarrar las cartas, mezclarlas y duplicarlas.
@@ -36,14 +41,26 @@ function App() {
 
     //console.log(mezclas, turno) //Imprimiendo la matriz de las cartas y el turno de la persona.
 
+    //Función para la elección.
+    const hEleccion = (carta) => {
+        //console.log(carta)
+        //Si la variable está null es porque no se ha elegido nada. Si no está null, es porque ya se escogió una carta.
+        //Si la variable eleccionUno está null, entonces pasa a setEleccionUno(carta). Si no está null, entonces pasa a setEleccionDos(carta).
+        eleccionUno ? setEleccionDos(carta) : setEleccionUno(carta)
+    }
+
     return (
       <div className = "App" >
         <h1 > Juego de Memoria(Lab6) < /h1>
         <button onClick = { mezcla } > Nuevo juego < /button>
         <div className = "grilla" > { /*Esta es la grilla de las cartas*/ }
         {mezclas.map(carta => (
-          <Cartas key={carta.id} carta={carta}/>
-        ))} {/*Enviando a la clase Cartas el id de las cartas y la imagen.*/}
+          <Cartas
+          key={carta.id}
+          carta={carta}
+          hEleccion = {hEleccion}
+          />
+        ))} {/*Enviando a la clase Cartas el id de las cartas y la imagen. También se está pasando como parámetro la función que lee la elección*/}
         </div>
       </div>
     );
