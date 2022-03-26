@@ -60,12 +60,14 @@ function App() {
         //Si el source de la elección 1 es igual al source de la elección 2, entonces se dice que hay un match.
         if(eleccionUno.src === eleccionDos.src){
           //Se va a actualizar lo siguiente: const [mezclas, setMezclas] = useState([])
-          setMezclas(prevMezclas => {
-            return prevMezclas.map(carta => {
-              if (carta.src === eleccionUno.src){
-                return {...carta, matched: true}
+          //Si el source de la elección uno es exactamente igual al source de la elección dos entonces:
+          setMezclas(prevMezclas => { //Se actualiza el estado de la carta anterior
+            return prevMezclas.map(carta => { //Se retorna un nuevo array de cartas basado en el estado anterior de las cartas.
+              //Función que recorre a c/u de las cartas.
+              if (carta.src === eleccionUno.src){ //Si en caso el estado de la carta es igual al estado de la carta seleccionada, entonces pasa lo siguiente: se retorna el estado de la carta en true.
+                return {...carta, matched: true} //Retornando el estado de la carta que hizo match en true.
               }else{
-                return carta
+                return carta //Si en caso las cartas no son iguales, entonces se retorna el estado de la carta sin cambiar.
               }
             })
           })
@@ -79,7 +81,7 @@ function App() {
     }, [eleccionUno, eleccionDos]) //Cuando se seleccione la carta 1, entonces se buscará esta función y cuando se seleccione la carta 2, entonces se busca este método otra vez.
 
 
-    console.log(mezclas)
+    console.log(mezclas) //Imprimiendo la matriz de mezclas.
 
     //Este método formatea las elecciones e incrementa el turno.
     const formTurno = () => {
