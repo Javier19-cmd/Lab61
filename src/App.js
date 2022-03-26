@@ -47,6 +47,32 @@ function App() {
         //Si la variable está null es porque no se ha elegido nada. Si no está null, es porque ya se escogió una carta.
         //Si la variable eleccionUno está null, entonces pasa a setEleccionUno(carta). Si no está null, entonces pasa a setEleccionDos(carta).
         eleccionUno ? setEleccionDos(carta) : setEleccionUno(carta)
+        //No es recomendable comparar más cosas en este método.
+    }
+
+    //Comparando las dos elecciones.
+    //A este método se le pasa una segunda dependencia.
+    useEffect(() => {
+      //Se evalúa si eleccionUno y eleccionDos tienen un valor.
+      if(eleccionUno && eleccionDos){
+
+        //Si el source de la elección 1 es igual al source de la elección 2, entonces se dice que hay un match.
+        if(eleccionUno.src === eleccionDos.src){
+          console.log("Hay un match.")
+          formTurno() //Se llama para limpiar las dos elecciones y para incrementar el turno.
+        }else {
+          console.log("Las cartas no son iguales")
+          formTurno() //Se llama para limpiar las dos elecciones y para incrementar el turno.
+        }
+
+      }
+    }, [eleccionUno, eleccionDos]) //Cuando se seleccione la carta 1, entonces se buscará esta función y cuando se seleccione la carta 2, entonces se busca este método otra vez.
+
+    //Este método formatea las elecciones e incrementa el turno.
+    const formTurno = () => {
+      setEleccionUno(null) //Formateando la elección 1.
+      setEleccionDos(null) //Formateando la elección 2.
+      setTurno(prevTurno => prevTurno + 1) //Incrementando el turno de elección.
     }
 
     return (
