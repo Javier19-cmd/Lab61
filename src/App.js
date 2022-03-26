@@ -27,6 +27,9 @@ function App() {
     const[eleccionUno, setEleccionUno] = useState(null) //Estado para la elección de la carta 1.
     const[eleccionDos, setEleccionDos] = useState(null) //Estado para la elección de la carta 2.
 
+    //Creando estado deshabilitado en las cartas.
+    const[deshabilitado, setDeshabilitado] = useState(false)
+
 
     //Mezclar las cartas.
     const mezcla = () => {
@@ -56,6 +59,8 @@ function App() {
     useEffect(() => {
       //Se evalúa si eleccionUno y eleccionDos tienen un valor.
       if(eleccionUno && eleccionDos){
+
+        setDeshabilitado(true) //Esto hace que las demás cartas se deshabiliten cuando haya un match entre dos cartas elegidas anteriormente.
 
         //Si el source de la elección 1 es igual al source de la elección 2, entonces se dice que hay un match.
         if(eleccionUno.src === eleccionDos.src){
@@ -87,6 +92,7 @@ function App() {
       setEleccionUno(null) //Formateando la elección 1.
       setEleccionDos(null) //Formateando la elección 2.
       setTurno(prevTurno => prevTurno + 1) //Incrementando el turno de elección.
+      setDeshabilitado(false) //Cuando ya se hizo la comparación entre las cartas, ya se deshabilita el bloqueo establecido.
     }
 
     return (
@@ -100,8 +106,11 @@ function App() {
           carta={carta}
           hEleccion = {hEleccion}
           flipped = {carta === eleccionUno || carta === eleccionDos || carta.matched}
+          deshabilitados={deshabilitado}
           />
-        ))} {/*Mandando el id de la carta a la clase Cartas. Enviando el source de las cartas a la clase de Cartas. Enviando el evento de click a la clase de Cartas*/} {/*Hay tres escenarios: 1. Si se seleccionó la carta uno 2. Si se seleccionó la carta dos y 3. Si las cartas hacen match*/}
+        ))} {/*Mandando el id de la carta a la clase Cartas. Enviando el source de las cartas a la clase de Cartas. Enviando el evento de click a la clase de Cartas*/}
+            {/*Hay tres escenarios: 1. Si se seleccionó la carta uno 2. Si se seleccionó la carta dos y 3. Si las cartas hacen match*/}
+            {/*También se pasa el estado deshabilitado. Esto ocurre cuando hay un match entre dos cartas, entonces se bloquean las demás cartas. Si no, se habilita escoger cualquier otra carta*/}
         </div>
       </div>
     );
