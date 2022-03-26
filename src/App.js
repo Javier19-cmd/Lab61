@@ -1,5 +1,6 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react' //Importando estados y efectos.
 import './App.css';
+import Cartas from './Components/Cartas' //Importando el método de cartas desde el archivo de Cartas.
 
 //Cartas que se usarán para la memoria.
 const cartas = [
@@ -33,19 +34,15 @@ function App() {
       setTurno(0)
   }
 
+  console.log(mezclas, turno) //Imprimiendo la matriz de las cartas y el turno de la persona.
+
   return (
     <div className="App">
-      <h1>Juego de Memoria (Lab6)</h1>
-      <button onClick={mezcla}>Nuevo juego</button>
-
-      <div className="grilla">
-        {mezclas.map(carta => (
-          <div className ="carta" key={carta.id}>
-            <div>
-              <img className = "front" src={carta.src} alt="frente"/>
-              <img className = "back" src="/img/uno.png" alt="trasero"/>
-            </div>
-          </div>
+      <h1>Juego de Memoria (Lab6)</h1>{/*Título de la página*/}
+      <button onClick={mezcla}>Nuevo juego</button> {/*Botón para mezclar las cartas*/}
+      <div className="grilla"> {/*Esta es la grilla de las cartas*/}
+        {mezclas.map(carta =>(
+          <Cartas key={carta.id} carta={carta.src}/>
         ))}
       </div>
     </div>
