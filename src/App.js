@@ -36,20 +36,16 @@ function App() {
 
     console.log(mezclas, turno) //Imprimiendo la matriz de las cartas y el turno de la persona.
 
-    return ( <
-        div className = "App" >
-        <
-        h1 > Juego de Memoria(Lab6) < /h1>{/ * Título de la página * /} <
-        button onClick = { mezcla } > Nuevo juego < /button> {/ * Botón para mezclar las cartas * /} <
-        div className = "grilla" > { /*Esta es la grilla de las cartas*/ } {
-            mezclas.map(carta => ( <
-                Cartas key = { carta.id }
-                carta = { carta }
-                />
+    return (
+      <div className = "App" >
+        <h1> Juego de Memoria(Lab6) </h1>
+        <button onClick = { mezcla }> Nuevo juego </button>
+        <div className = "grilla" > { /*Esta es la grilla de las cartas*/ }
+        {mezclas.map(carta => (
+          <Cartas key={ carta.id } carta = { carta }/>
             ))
-        } <
-        /div> < /
-        div >
+        }
+        </div> </div >
     );
 }
 
