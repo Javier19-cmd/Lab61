@@ -92,16 +92,17 @@ function App() {
 
     return (
       <div className = "App" >
-        <h1 > Juego de Memoria(Lab6) < /h1>
-        <button onClick = { mezcla } > Nuevo juego < /button>
+        <h1 > Juego de Memoria(Lab6) < /h1> {/*Dándole título a la página*/}
+        <button onClick = { mezcla } > Nuevo juego </button> {/*Botón para mezclar cartas*/}
         <div className = "grilla" > { /*Esta es la grilla de las cartas*/ }
         {mezclas.map(carta => (
           <Cartas
           key={carta.id}
           carta={carta}
           hEleccion = {hEleccion}
+          flipped = {carta === eleccionUno || carta === eleccionDos || carta.matched}
           />
-        ))} {/*Enviando a la clase Cartas el id de las cartas y la imagen. También se está pasando como parámetro la función que lee la elección*/}
+        ))} {/*Mandando el id de la carta a la clase Cartas. Enviando el source de las cartas a la clase de Cartas. Enviando el evento de click a la clase de Cartas*/} {/*Hay tres escenarios: 1. Si se seleccionó la carta uno 2. Si se seleccionó la carta dos y 3. Si las cartas hacen match*/}
         </div>
       </div>
     );

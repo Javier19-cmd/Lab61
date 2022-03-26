@@ -11,3 +11,14 @@
   border: 2px solid #fff;
   border-radius: 6px;
 }
+
+/*Propiedades para el frente de las cartas: La parte de los números*/
+.carta .front {
+  transform: rotateY(90deg); /*Se rota 90° la carta en el eje Y. Lo anterior se hace de manera horizontal*/
+  position: absolute;       /*Se le coloca la posición absoluta*/
+}
+
+/*Esto es para la parta trasera de la carta, o sea la imagen que tiene el uno*/
+.flipped .front{
+  transform: rotateY(0deg);
+}
