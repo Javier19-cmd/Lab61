@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react' //Importando estados y efectos.
 import './App.css';
-import Cartas from './Components/Cartas' //Importando el método de cartas desde el archivo de Cartas.
+import Cartas from './components/Cartas' //Importando el método de cartas desde el archivo de Cartas.
 
 //Cartas que se usarán para la memoria.
 const cartas = [
@@ -42,10 +42,11 @@ function App() {
         <button onClick = { mezcla }> Nuevo juego </button>
         <div className = "grilla" > { /*Esta es la grilla de las cartas*/ }
         {mezclas.map(carta => (
-          <Cartas key={ carta.id } carta = { carta }/>
+          <Cartas key={carta.id} card = {carta}/>
             ))
         }
-        </div> </div >
+        </div>
+        </div>
     );
 }
 
