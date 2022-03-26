@@ -38,15 +38,14 @@ function App() {
 
     return (
       <div className = "App" >
-        <h1> Juego de Memoria(Lab6) </h1>
-        <button onClick = { mezcla }> Nuevo juego </button>
+        <h1 > Juego de Memoria(Lab6) < /h1>
+        <button onClick = { mezcla } > Nuevo juego < /button>
         <div className = "grilla" > { /*Esta es la grilla de las cartas*/ }
         {mezclas.map(carta => (
-          <Cartas key={carta.id} card = {carta}/>
-            ))
-        }
+          <Cartas key={carta.id} carta={carta}/>
+         ))}
         </div>
-        </div>
+      </div>
     );
 }
 
