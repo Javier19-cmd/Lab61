@@ -74,9 +74,8 @@ function App() {
           formTurno() //Se llama para limpiar las dos elecciones y para incrementar el turno.
         }else {
           console.log("No hay match")
-          formTurno() //Se llama para limpiar las dos elecciones y para incrementar el turno.
+          setTimeout(() => formTurno(), 5000) //Se llama para limpiar las dos elecciones y para incrementar el turno. Tiene un delay de gracia.
         }
-
       }
     }, [eleccionUno, eleccionDos]) //Cuando se seleccione la carta 1, entonces se buscará esta función y cuando se seleccione la carta 2, entonces se busca este método otra vez.
 
