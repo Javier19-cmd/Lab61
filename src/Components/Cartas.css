@@ -1,24 +1,38 @@
 /*Propiedades de la carta individual*/
 .carta{
-  position: relative;
+  position: relative; /*Posición relativa, para que se puedan aplicar todas las propiedades como debe ser*/
 }
 
 /*Propiedades de la imagen*/
 /*Cambiar después*/
 .carta img{
-  width: 100%;
-  display: block;
-  border: 2px solid #fff;
-  border-radius: 6px;
+  width: 100%; /*Ancho del 100% en la carta*/
+  display: block; /*Se hace el display en bloque para mayor comoidad*/
+  border: 4px black; /*Se aplica un borde de dos pixeles para que quede mejor en vista.*/
+  border-radius: 8px;     /*Se le aplica un poco de esquinas redondas a las cartas*/
 }
 
 /*Propiedades para el frente de las cartas: La parte de los números*/
 .carta .frente {
   transform: rotateY(90deg); /*Se rota 90° la carta en el eje Y. Lo anterior se hace de manera horizontal*/
   position: absolute;       /*Se le coloca la posición absoluta*/
+  transition: all ease-in 0.2s; /*Esta transición especifica la dirección de la carta*/
 }
 
 /*Esto es para la parta trasera de la carta, o sea la imagen que tiene el uno*/
 .flipped .frente{
-  transform: rotateY(0deg);
+  transform: rotateY(0deg); /*Se pasa de 90 grados a cero grados*/
+  transition-delay: 0.2s;   /*Esto va a hacer que haya un retraso de 0.2s. También especifica la dirección*/
+}
+
+/*Parte de atrás de las cartas*/
+.carta .trasero{
+  transition: all ease-in 0.2s; /*Esto hace que parezca que voltea como una carta real*/
+  transition-delay: 0.2s;       /*Se aplica un delay de 0.2s para que se vea más realista*/
+}
+
+/*Volteo en la parte de atrás. Esto es cuando ya se enseña la carta numérica*/
+.flipped .trasero{
+  transform: rotateY(90deg); /*Esto hace que se voltee "hacia abajo" la parte de la carta que tiene color café*/
+  transition-delay: 0s;      /*Se puso para que la transición sea rápida al momento de poner la cara boca abajo*/
 }
