@@ -34,7 +34,7 @@ function App() {
         setTurno(0)
     }
 
-    console.log(mezclas, turno) //Imprimiendo la matriz de las cartas y el turno de la persona.
+    //console.log(mezclas, turno) //Imprimiendo la matriz de las cartas y el turno de la persona.
 
     return (
       <div className = "App" >
@@ -43,7 +43,7 @@ function App() {
         <div className = "grilla" > { /*Esta es la grilla de las cartas*/ }
         {mezclas.map(carta => (
           <Cartas key={carta.id} carta={carta}/>
-         ))}
+        ))} {/*Enviando a la clase Cartas el id de las cartas y la imagen.*/}
         </div>
       </div>
     );
