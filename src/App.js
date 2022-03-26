@@ -78,7 +78,8 @@ function App() {
       }
     }, [eleccionUno, eleccionDos]) //Cuando se seleccione la carta 1, entonces se buscará esta función y cuando se seleccione la carta 2, entonces se busca este método otra vez.
 
-    console.log(cartas)
+
+    console.log(mezclas)
 
     //Este método formatea las elecciones e incrementa el turno.
     const formTurno = () => {
