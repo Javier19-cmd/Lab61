@@ -59,27 +59,15 @@ function App() {
 
         //Si el source de la elección 1 es igual al source de la elección 2, entonces se dice que hay un match.
         if(eleccionUno.src === eleccionDos.src){
-          setMezclas(prevMezcla => {//Se actualiza el estado de la carta.
-            return prevMezcla.map(carta => {//Se obtiene el estado anterior de la carta elegida.
-              //Se analiza si el source de la carta es igual a la elección uno para poder cambiar el estado de matched de la carta a true.
-              if(carta.src === eleccionUno.src) {
-                return {...carta, matched: true} //Cambiando el estado de matched de la carta a true.
-              }else {//Si en caso no es igual, entonces se voltea de nuevo.
-                return carta
-              }
-            })
-          }) //Se usa el estado antiguo de las cartas para actualizarlas.
+          console.log("Cola")
           formTurno() //Se llama para limpiar las dos elecciones y para incrementar el turno.
         }else {
-          setMezclas()
+          console.log("No hay match")
           formTurno() //Se llama para limpiar las dos elecciones y para incrementar el turno.
         }
 
       }
     }, [eleccionUno, eleccionDos]) //Cuando se seleccione la carta 1, entonces se buscará esta función y cuando se seleccione la carta 2, entonces se busca este método otra vez.
-
-
-    console.log(cartas) //Imprimiendo el estado de las cartas.
 
     //Este método formatea las elecciones e incrementa el turno.
     const formTurno = () => {
