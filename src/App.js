@@ -113,7 +113,7 @@ function App() {
 
     return (
       <div className = "App" >
-        <h1 > Juego de Memoria(Lab6) < /h1> {/*Dándole título a la página*/}
+        <h1> Juego de Memoria(Lab6) < /h1> {/*Dándole título a la página*/}
         <button onClick = { mezcla } > Nuevo juego </button> {/*Botón para mezclar cartas*/}
         <div className = "grilla" > { /*Esta es la grilla de las cartas*/ }
         {mezclas.map(carta => (
@@ -130,7 +130,7 @@ function App() {
         </div>
         <p>Movimientos: {turno} </p>
       </div>
-    );
+    )
 }
 
 export default App;
